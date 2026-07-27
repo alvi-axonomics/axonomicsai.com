@@ -416,6 +416,49 @@
   }
   .science-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
+  /* SAMPLE REPORT + VALIDATION */
+  .report-block { margin-top: 64px; }
+  .report-h3 { font-size: 20px; font-weight: 300; color: #F4FAFF; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .report-h3 strong { font-weight: 600; }
+  .report-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 36px 40px 28px; }
+  .report-head {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+  }
+  .report-head-title { font-size: 15px; font-weight: 500; color: #E8F0F8; margin-top: 4px; }
+  .report-synthetic-tag {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
+    background: var(--bg); border: 1px solid var(--border); border-radius: 2px; padding: 5px 10px; white-space: nowrap;
+  }
+  .report-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 26px; }
+  .report-meta .k { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+  .report-meta .v { font-size: 13px; color: #C8D8E4; }
+  .report-toggle { display: flex; gap: 8px; margin-bottom: 22px; }
+  .report-toggle button {
+    font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-muted); background: transparent; border: 1px solid var(--border); border-radius: 2px;
+    padding: 7px 14px; cursor: pointer; transition: all 0.2s;
+  }
+  .report-toggle button.active { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+  .report-toggle button:not(.active):hover { border-color: var(--accent-border); color: var(--text); }
+  .report-chart-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: 2px; padding: 18px 20px 10px; margin-bottom: 22px; }
+  .report-legend { display: flex; gap: 20px; font-size: 11px; color: var(--text-dim); margin-bottom: 4px; }
+  .report-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .report-legend i { width: 14px; height: 2px; display: inline-block; }
+  .report-readout {
+    display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 2px; margin-bottom: 20px;
+    background: var(--accent-dim); border: 1px solid var(--accent-border);
+  }
+  .report-readout.flag { background: rgba(224,92,58,0.08); border-color: rgba(224,92,58,0.25); }
+  .report-pill {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px;
+    border-radius: 2px; white-space: nowrap; background: var(--accent); color: var(--bg);
+  }
+  .report-readout.flag .report-pill { background: var(--red); }
+  .report-readout p { margin: 0; font-size: 13px; color: #C8D8E4; line-height: 1.5; }
+  .report-foot { font-size: 11px; color: var(--text-dim); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 14px; }
+  .valstrip-status { font-size: 12px; color: var(--text-dim); line-height: 1.6; margin-top: 20px; max-width: 640px; }
+
   /* CTA SECTION */
   .cta-section {
     padding: 100px 60px;
@@ -531,6 +574,9 @@
     .timeline { grid-template-columns: 1fr; gap: 20px; }
     .timeline::before { display: none; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
+    .report-card { padding: 28px 22px 22px; }
+    .report-meta { grid-template-columns: 1fr; gap: 14px; }
+    .report-chart-wrap { padding: 16px 12px 8px; overflow-x: auto; }
   }
 </style>
 </head>
@@ -738,8 +784,8 @@
   <div class="science-grid reveal reveal-delay-3">
     <div class="science-card">
       <div class="science-num">1,715</div>
-      <div class="science-title">SOOP dataset — stroke</div>
-      <div class="science-desc">MRI with linked NIHSS outcomes. Candidate training cohort for stroke trajectory modelling.</div>
+      <div class="science-title">Real-world stroke registry</div>
+      <div class="science-desc">A contemporary, real-world acute stroke imaging registry with linked NIHSS outcomes. Candidate training cohort for stroke trajectory modelling.</div>
     </div>
     <div class="science-card">
       <div class="science-num">3,000</div>
@@ -756,6 +802,88 @@
       <div class="science-title">MRI signals that matter</div>
       <div class="science-desc">Lesion &amp; edema volume · White matter integrity · Cortical volume · Spinal cord signal change. All from standard sequences already collected.</div>
     </div>
+  </div>
+
+  <div class="report-block reveal reveal-delay-4">
+    <div class="section-tag">Sample output</div>
+    <div class="report-h3">What a sponsor <strong>receives.</strong></div>
+    <p class="section-sub" style="margin-bottom:28px;">
+      A synthetic case, shown to illustrate the report format. Real reports are generated
+      from de-identified patient imaging under a sponsor data-use agreement.
+    </p>
+
+    <div class="report-card">
+      <div class="report-head">
+        <div>
+          <div class="section-tag" style="margin-bottom:4px;">Axonomics response report</div>
+          <div class="report-head-title">Recovery-trajectory tracking</div>
+        </div>
+        <span class="report-synthetic-tag">Synthetic case — for illustration</span>
+      </div>
+
+      <div class="report-meta">
+        <div><div class="k">Case ID</div><div class="v">SYN-0417</div></div>
+        <div><div class="k">Indication</div><div class="v">Ischemic stroke</div></div>
+        <div><div class="k">Imaging timepoint</div><div class="v">Week 4 post-baseline</div></div>
+      </div>
+
+      <div class="report-toggle">
+        <button type="button" class="active" data-case="a">Case A</button>
+        <button type="button" data-case="b">Case B</button>
+      </div>
+
+      <div class="report-chart-wrap">
+        <div class="report-legend">
+          <span><i style="border-top:2px dashed #3A5566;height:0;"></i>Expected recovery (registry norm)</span>
+          <span><i style="background:var(--accent);"></i>Tracked signal — this patient</span>
+        </div>
+        <svg id="report-chart" viewBox="0 0 560 190" width="100%" style="display:block;overflow:visible;">
+          <line x1="36" y1="8" x2="36" y2="150" stroke="#0F2035" stroke-width="1"/>
+          <line x1="36" y1="150" x2="540" y2="150" stroke="#0F2035" stroke-width="1"/>
+          <text x="36" y="168" font-size="10" fill="#3A5566">W0</text>
+          <text x="166" y="168" font-size="10" fill="#3A5566">W4</text>
+          <text x="326" y="168" font-size="10" fill="#3A5566">W8</text>
+          <text x="500" y="168" font-size="10" fill="#3A5566">W12</text>
+          <polyline points="36,140 166,108 326,78 540,48" fill="none" stroke="#3A5566" stroke-width="1.5" stroke-dasharray="5,5"/>
+          <polyline id="report-patient-line" points="36,140 166,85 326,60 540,38" fill="none" stroke="#00C4A0" stroke-width="2.25"/>
+          <g id="report-patient-dots"></g>
+        </svg>
+      </div>
+
+      <div class="report-readout" id="report-readout">
+        <span class="report-pill" id="report-pill">ON TRACK</span>
+        <p id="report-text">Tracking above expected recovery trajectory at Week 4.</p>
+      </div>
+
+      <div class="report-foot">
+        Model in development. Not for clinical use. Not FDA cleared. Report format shown for illustration; case data is synthetic.
+      </div>
+    </div>
+  </div>
+
+  <div class="report-block reveal reveal-delay-5">
+    <div class="section-tag">Where the model stands</div>
+    <div class="report-h3">Real numbers, <strong>early stage.</strong></div>
+    <p class="section-sub" style="margin-bottom:28px;">Pilot metrics below. Full-cohort test-set validation is underway.</p>
+
+    <div class="metrics" style="border-radius:4px;overflow:hidden;">
+      <div class="metric">
+        <div class="metric-val">r ≈ 0.60</div>
+        <div class="metric-label">Current pilot correlation with NIHSS (R² ≈ 0.35)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">~150 <span>· ~300</span></div>
+        <div class="metric-label">Planned test subjects · scans (T1w + DWI) at full cohort scale</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val" style="font-size:24px;">R² + AUC</div>
+        <div class="metric-label">Reported once full held-out test-set validation completes</div>
+      </div>
+    </div>
+    <p class="valstrip-status">
+      Building — early pilot on a small subset. Full-cohort validation, drawn from a contemporary,
+      real-world acute stroke imaging registry with linked functional-outcome data, in progress.
+    </p>
   </div>
 </section>
 
@@ -851,6 +979,49 @@
       el.classList.add('visible');
     });
   }, 100);
+
+  // Sample report: case toggle
+  (function () {
+    const cases = {
+      a: {
+        patient: "36,140 166,85 326,60 540,38",
+        dots: [[166,85],[326,60],[540,38]],
+        flag: false,
+        pill: "ON TRACK",
+        text: "Tracking above expected recovery trajectory at Week 4."
+      },
+      b: {
+        patient: "36,140 166,122 326,118 540,110",
+        dots: [[166,122],[326,118],[540,110]],
+        flag: true,
+        pill: "SIGNAL DIVERGENCE",
+        text: "Tracking below expected recovery trajectory at Week 4 — flagged for review."
+      }
+    };
+
+    const line = document.getElementById('report-patient-line');
+    const dots = document.getElementById('report-patient-dots');
+    const readout = document.getElementById('report-readout');
+    const pill = document.getElementById('report-pill');
+    const text = document.getElementById('report-text');
+    const buttons = document.querySelectorAll('.report-toggle button');
+
+    function render(key) {
+      const c = cases[key];
+      if (!line || !c) return;
+      line.setAttribute('points', c.patient);
+      dots.innerHTML = c.dots.map(([x, y], i) => {
+        const last = i === c.dots.length - 1;
+        return `<circle cx="${x}" cy="${y}" r="${last ? 5 : 3}" fill="${last ? '#0A1728' : '#00C4A0'}" stroke="#00C4A0" stroke-width="${last ? 2.5 : 0}"/>`;
+      }).join('');
+      readout.classList.toggle('flag', c.flag);
+      pill.textContent = c.pill;
+      text.textContent = c.text;
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.case === key));
+    }
+
+    buttons.forEach(b => b.addEventListener('click', () => render(b.dataset.case)));
+  })();
 </script>
 </body>
 </html>
