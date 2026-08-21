@@ -147,6 +147,16 @@
     padding: 5px 14px;
     margin-bottom: 32px;
   }
+  .hero-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tag-nvidia {
+    color: #A8B6C4;
+    background: rgba(168,182,196,0.06);
+    border: 1px solid rgba(168,182,196,0.22);
+  }
 
   .hero h1 {
     font-size: clamp(36px, 5vw, 58px);
@@ -550,6 +560,76 @@
     .team-grid { grid-template-columns: 1fr; }
   }
 
+  /* VALIDATION & TRACTION */
+  .traction-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .traction-card {
+    background: var(--bg-card);
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .traction-card-nvidia {
+    background: linear-gradient(180deg, rgba(0,196,160,0.05), var(--bg-card) 60%);
+  }
+  .traction-status {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+  .status-active {
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+  }
+  .status-discussion {
+    color: #E0B94A;
+    background: rgba(224,185,74,0.08);
+    border: 1px solid rgba(224,185,74,0.25);
+  }
+  .status-early {
+    color: var(--text-muted);
+    background: rgba(107,139,164,0.08);
+    border: 1px solid rgba(107,139,164,0.25);
+  }
+  .status-nvidia {
+    color: #A8B6C4;
+    background: rgba(168,182,196,0.08);
+    border: 1px solid rgba(168,182,196,0.25);
+  }
+  .traction-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #E8F0F8;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .traction-person {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .traction-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  @media (max-width: 900px) {
+    .traction-grid { grid-template-columns: 1fr; }
+  }
+
   /* FOOTER */
   footer {
     padding: 28px 60px;
@@ -589,6 +669,7 @@
     <li><a href="#solution">Solution</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#science">Science</a></li>
+    <li><a href="#traction">Validation</a></li>
     <li><a href="#team">Team</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Request a pilot</a>
@@ -599,8 +680,9 @@
   <div class="hero-grid-bg"></div>
   <div class="hero-glow"></div>
 
-  <div class="reveal">
+  <div class="reveal hero-tag-row">
     <div class="tag">Clinical-trial imaging analytics</div>
+    <div class="tag tag-nvidia">NVIDIA Inception Program Member</div>
   </div>
 
   <h1 class="reveal reveal-delay-1">
@@ -884,6 +966,48 @@
       Building — early pilot on a small subset. Full-cohort validation, drawn from a contemporary,
       real-world acute stroke imaging registry with linked functional-outcome data, in progress.
     </p>
+  </div>
+</section>
+
+<!-- VALIDATION & TRACTION -->
+<section id="traction">
+  <div class="section-tag reveal">Validation &amp; traction</div>
+  <h2 class="reveal reveal-delay-1">Building clinical proof points, <strong>one site at a time.</strong></h2>
+  <p class="section-sub reveal reveal-delay-2">
+    Multi-site validation strategy plus compute infrastructure already secured.
+  </p>
+
+  <div class="traction-grid">
+    <div class="traction-card reveal">
+      <span class="traction-status status-active">Active</span>
+      <div class="traction-name">University of Louisville</div>
+      <div class="traction-person">Dr. Saad Hassan, Stroke Medical Director, UofL Health, Jewish Hospital</div>
+      <p class="traction-text">Pilot test site identified. IRB submission underway with the Stroke Medical Director.</p>
+    </div>
+
+    <div class="traction-card reveal reveal-delay-1">
+      <span class="traction-status status-discussion">In discussion</span>
+      <div class="traction-name">West Virginia University</div>
+      <div class="traction-person">Dr. Mud Alvi, Stroke Medical Director and Vice Chair Neurology, WVU Medicine</div>
+      <p class="traction-text">Discussions underway for a second validation site, broadening geographic and patient diversity.</p>
+    </div>
+
+    <div class="traction-card reveal reveal-delay-2">
+      <span class="traction-status status-early">Early / exploratory</span>
+      <div class="traction-name">Stroke Telehealth Network</div>
+      <div class="traction-person">Dr. Saad Zafar, Founder, TeleHealth Services USA</div>
+      <p class="traction-text">Exploratory conversations on a data and validation partnership. Telestroke networks generate follow-up imaging that is centrally stored and largely unanalyzed for recovery biomarkers today.</p>
+    </div>
+
+    <div class="traction-card traction-card-nvidia reveal reveal-delay-3">
+      <span class="traction-status status-nvidia">NVIDIA Inception &middot; accepted 2026</span>
+      <div class="traction-name">NVIDIA Inception Program</div>
+      <p class="traction-text">
+        Provides GPU cloud credits and technical resources for model training, reducing near-term
+        compute cost as a constraint on our development timeline. Membership also reflects
+        independent technical validation from a leading AI infrastructure provider.
+      </p>
+    </div>
   </div>
 </section>
 
