@@ -150,12 +150,22 @@
   .hero-tag-row {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
   }
-  .tag-nvidia {
-    color: #A8B6C4;
-    background: rgba(168,182,196,0.06);
+  .nvidia-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(168,182,196,0.05);
     border: 1px solid rgba(168,182,196,0.22);
+    border-radius: 2px;
+    padding: 8px 14px;
+    margin-bottom: 32px;
+  }
+  .nvidia-badge img {
+    display: block;
+    height: 20px;
+    width: auto;
   }
 
   .hero h1 {
@@ -751,7 +761,7 @@
 
   <div class="reveal hero-tag-row">
     <div class="tag">Clinical-trial imaging analytics</div>
-    <div class="tag tag-nvidia">NVIDIA Inception Program Member</div>
+    <div class="nvidia-badge"><img src="nvidia-inception-badge.png" alt="NVIDIA Inception Program Member"></div>
   </div>
 
   <h1 class="reveal reveal-delay-1">
